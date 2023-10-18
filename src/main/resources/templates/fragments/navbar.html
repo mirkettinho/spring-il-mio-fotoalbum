@@ -4,11 +4,11 @@
 <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
 <title>Insert title here</title>
 </head>
-<body>
+<body th:object="${photo}">
 	
 	<nav class="navbar navbar-expand-lg bg-info mb-3" th:fragment="navbar(current)">
 	    <div class="container-fluid">
-	        <a class="navbar-brand fw-bold text-primary" th:href="@{/}">Album</a>
+	        <a class="navbar-brand fw-bold text-secondary" th:href="@{/}">Album</a>
 	        <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse"
 	                data-bs-target="#navbarNav"
 	                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,17 +17,23 @@
 	        <div class="collapse navbar-collapse" id="navbarNav">
 	            <ul class="navbar-nav navbar-nav-right d-flex align-items-center">
 	                <li class="nav-item">
-	                    <a class="nav-link fw-semibold text-primary" th:href="@{/photos}">
+	                    <a class="nav-link fw-semibold text-secondary" th:href="@{/photos}">
 	                        <span>FOTO</span>
 	                    </a>
 	                </li>
 	                <li class="nav-item">
-	                    <a class="nav-link fw-semibold text-primary" href="#">
+	                    <a class="nav-link fw-semibold text-secondary" href="#">
 	                        <span>CATEGORIE</span>
 	                    </a>
 	                </li>
 	            </ul>
 	        </div>
+	        
+	        <form class="d-flex" role="search">
+				<label for="search" class="d-none">Search</label>
+		        <input class="form-control me-2" type="search" name="searchInput" th:value="${searchInput}" placeholder="Search" aria-label="Search">
+		        <button class="btn btn-success" type="submit">Search</button>		
+	      </form>
 	    </div>
 	</nav>
 

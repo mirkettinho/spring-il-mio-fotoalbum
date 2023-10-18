@@ -17,7 +17,7 @@ public class PhotoController {
 	private PhotoServ photoServ;
 	
 	@GetMapping("/")
-	public String getIndex(@RequestParam(required = false) String searchInput,	Model model) {
+	public String getIndex(@RequestParam(required = false) String searchInput, Model model) {
 		
 		
 		List<Photo> photos = searchInput == null ? photoServ.findAll() : photoServ.findByTitle(searchInput);
