@@ -1,6 +1,6 @@
 package org.java.app.db.pojo;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -20,15 +20,21 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Size(min = 5, max = 20, message = "min 5 caratteri e max 20")
+	@Size(min = 5, max = 40, message = "min 5 caratteri e max 40")
 	@Column(nullable = false)
 	private String name;
 	
 	
 	/// RELATIONS
 	@ManyToMany(mappedBy = "categories")
-	private List<Photo> photos = new ArrayList<>();
+	private List<Photo> photos;
+	
+	public Category() {}
 
+	public Category(String name) {
+		
+		setName(name);
+	}
 
 	///GET & SET
 	public Integer getId() {
@@ -65,7 +71,7 @@ public class Category {
 		
 		this.photos = photos;
 	}
-	
+
 	
 	
 }

@@ -1,6 +1,6 @@
 package org.java.app.db.pojo;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -24,7 +24,7 @@ public class Photo {
 	@Column(nullable = false)
 	private String title;
 	
-	@Size(min = 20, max = 200, message = "min 20 caratteri e max 200")
+	@Size(min = 5, max = 200, message = "min 5 caratteri e max 200")
 	@Column(columnDefinition = "TEXT")	///TYPE TEXT
 	private String description;
 	
@@ -37,7 +37,18 @@ public class Photo {
 	
 	/// RELATIONS
 	@ManyToMany
-	private List<Category> categories = new ArrayList<>();
+	private List<Category> categories;
+
+	public Photo() {}
+
+	public Photo(String title, String description, String url, boolean isVisible, Category... categories) {
+		
+		setTitle(title);
+		setDescription(description);
+		setUrl(url);
+		setVisible(isVisible);
+		setCategories(Arrays.asList(categories));
+	}
 
 
 	/// GET & SET

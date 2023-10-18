@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-lg bg-info mb-3" th:fragment="navbar(current)">
+	    <div class="container-fluid">
+	        <a class="navbar-brand fw-bold text-primary" th:href="@{/}">Album</a>
+	        <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse"
+	                data-bs-target="#navbarNav"
+	                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	            <i class="fa-solid fa-bars text-secondary"></i>
+	        </button>
+	        <div class="collapse navbar-collapse" id="navbarNav">
+	            <ul class="navbar-nav navbar-nav-right d-flex align-items-center">
+	                <li class="nav-item">
+	                    <a class="nav-link fw-semibold text-primary" th:href="@{/photos}">
+	                        <span>FOTO</span>
+	                    </a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link fw-semibold text-primary" href="#">
+	                        <span>CATEGORIE</span>
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
+
+</body>
+</html>
+
