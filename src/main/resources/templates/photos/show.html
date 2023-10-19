@@ -36,12 +36,10 @@
 							</div>
 						</div>
 	                </div>
-	                <!-- azioni -->
+	                <!-- call to action -->
 	                <div class="text-center rounded-bottom">
-	                    <a th:href="@{/}" class="btn btn-secondary fw-semibold m-1">
-	                        <i class="fa-solid fa-arrow-left me-1"></i> Torna
-	                        all'elenco
-	                    </a>
+						 <a th:href="@{/photos/edit/{id}(id=*{id})}" class="btn btn-warning my-1">Modifica <i class="fa-solid fa-pen-to-square"></i></a>
+	                    <a th:href="@{/}" class="btn btn-outline-danger fw-semibold m-1">Torna all'elenco</a>
 	                </div>
 	            </div>
 	        </div>

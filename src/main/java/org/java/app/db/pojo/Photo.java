@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -28,6 +29,7 @@ public class Photo {
 	@Column(columnDefinition = "TEXT")	///TYPE TEXT
 	private String description;
 	
+	@NotBlank(message = "inserire url")
 	@Column(nullable = false)
 	private String url;
 	
