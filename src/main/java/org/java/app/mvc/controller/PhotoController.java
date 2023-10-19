@@ -88,8 +88,36 @@ public class PhotoController {
 	}
 	
 	
+	/// DELETE
+	@PostMapping("/photos/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		
+		Photo photo = photoServ.findById(id);
+		
+		
+	    
+		photoServ.deletePizza(photo);
+		
+		return "redirect:/";
+	}
 	
 	
+	/// DELETE ALL PHOTO
+	@PostMapping("/photos/deleteAll")
+	public String deleteAllPhotos() {
+		
+		photoServ.deleteAllPhotos();
+		
+		return "redirect:/";
+	}
+	
+	
+	/// CONFIRM DELETE
+	@GetMapping("/photos/confirm-delete-all")
+	public String showDeleteAllConfirmation(Model model) {
+		
+	    return "photos/confirm-delete-all";
+	}
 	
 	
 	

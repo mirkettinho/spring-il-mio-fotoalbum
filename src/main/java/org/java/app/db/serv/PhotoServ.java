@@ -37,4 +37,14 @@ public class PhotoServ {
 		
 		photoRepo.delete(photo);
 	}
+	
+	public void deleteAllPhotos() {
+		
+		List<Photo> allPhotos = photoRepo.findAll();
+		
+		for (Photo photo : allPhotos) {
+			
+			photoRepo.delete(photo);
+		}
+	}
 }

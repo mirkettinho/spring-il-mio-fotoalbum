@@ -40,6 +40,11 @@
 	                <div class="text-center rounded-bottom">
 						 <a th:href="@{/photos/edit/{id}(id=*{id})}" class="btn btn-warning my-1">Modifica <i class="fa-solid fa-pen-to-square"></i></a>
 	                    <a th:href="@{/}" class="btn btn-outline-danger fw-semibold m-1">Torna all'elenco</a>
+	                    <form class="d-inline-block" th:action="@{|/photos/delete/*{id}|}"
+                              method="post">
+                            <button class="btn btn-danger my-1" type="submit">Elimina <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
 	                </div>
 	            </div>
 	        </div>
