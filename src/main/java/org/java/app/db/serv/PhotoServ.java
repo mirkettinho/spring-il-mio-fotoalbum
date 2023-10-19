@@ -33,7 +33,7 @@ public class PhotoServ {
 		return photoRepo.findByTitleContaining(title);
 	}
 	
-	public void deletePizza(Photo photo) {
+	public void deletePhoto(Photo photo) {
 		
 		photoRepo.delete(photo);
 	}

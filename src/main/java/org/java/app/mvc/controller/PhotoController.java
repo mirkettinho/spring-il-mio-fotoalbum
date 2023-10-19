@@ -96,7 +96,7 @@ public class PhotoController {
 		
 		
 	    
-		photoServ.deletePizza(photo);
+		photoServ.deletePhoto(photo);
 		
 		return "redirect:/";
 	}

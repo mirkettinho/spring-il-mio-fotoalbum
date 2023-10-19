@@ -60,13 +60,12 @@ public class Category {
 		this.name = name;
 	}
 
-
 	public List<Photo> getPhotos() {
 		
 		return photos;
 	}
-
-
+	
+	
 	public void setPhotos(List<Photo> photos) {
 		
 		this.photos = photos;

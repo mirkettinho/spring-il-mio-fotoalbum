@@ -15,7 +15,10 @@
 	
 	<main class="container mb-3">
 	    <h1 class="fw-semibold text-secondary mb-4">Lista categorie</h1>
-	    <div class="row flex-column flex-lg-row justify-content-between">
+	    <div class=" align-items-center mb-4">
+	        <a th:href="@{/categories/create}" class="btn btn-primary fw-semibold mb-3 mb-sm-0">Aggiungi Categoria <i
+	                class="fa-solid fa-plus me-1"></i></a>
+	    <div class="row flex-column flex-lg-row justify-content-between mt-4">
 	        <!-- categories -->
 	        <div class="col-lg-7 mb-4">
 	            <ol class="list-group list-group-numbered" th:if="${categories.size > 0}">
@@ -26,6 +29,9 @@
 	                         <!-- shows how many photos use the category -->
 	                        <span class="badge bg-info rounded-pill align-text-top" 
 	                              th:text="|*{photos.size()} foto|"></span>
+	                         <form class="d-inline-block justify-content-end" th:action="@{/categories/delete/{id}(id=*{id})}"  method="post">
+					         	<button  class="btn btn-danger my-1" type="submit"><i class="fa-solid fa-trash"></i></button>
+					          </form>
 	                    </div>
 	                </li>
 	            </ol>
