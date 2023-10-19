@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista categorie</title>
+<!-- BOOTSTRAP -->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.2/css/all.min.css}">
+</head>
+<body>
+	
+	<header>
+	    <nav th:replace="~{/fragments/navbar :: navbar(current='categories')}"></nav>
+	</header>
+	
+	<main class="container mb-3">
+	    <h1 class="fw-semibold text-secondary mb-4">Lista categorie</h1>
+	    <div class="row flex-column flex-lg-row justify-content-between">
+	        <!-- categories -->
+	        <div class="col-lg-7 mb-4">
+	            <ol class="list-group list-group-numbered" th:if="${categories.size > 0}">
+	                <li class="list-group-item d-flex justify-content-between align-items-start"
+	                    th:each="category : ${categories}" th:object="${category}">
+	                    <div class="ms-2 me-auto">
+	                        <h5 class="fw-bold d-inline-block me-2" th:text="*{name}"></h5>
+	                         <!-- shows how many photos use the category -->
+	                        <span class="badge bg-info rounded-pill align-text-top" 
+	                              th:text="|*{photos.size()} foto|"></span>
+	                    </div>
+	                </li>
+	            </ol>
+	            <!-- if there are no categories -->
+	            <div th:if="${categories.size < 1}" class="alert alert-info">
+	                <h4>Non sono presenti categorie</h4>
+	            </div>
+	        </div>
+	    </div>
+	</main>
+</body>
+</html>
