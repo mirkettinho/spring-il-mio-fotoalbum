@@ -128,6 +128,15 @@ public class Photo {
 		this.categories = categories;
 	}
 	
-	
+	public boolean listCategory(Category category) {
+		
+		if (getCategories() == null) return false;
+		
+		for( Category categories : getCategories())
+			if (categories.getId() == category.getId())
+				return true;
+		
+		return false;
+	}
 	
 }

@@ -3,6 +3,7 @@ package org.java.app.mvc.controller;
 import java.util.List;
 
 import org.java.app.db.pojo.Photo;
+import org.java.app.db.serv.CategoryServ;
 import org.java.app.db.serv.PhotoServ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,9 @@ public class PhotoController {
 	
 	@Autowired
 	private PhotoServ photoServ;
+	
+	@Autowired
+	CategoryServ categoryServ;
 	
 	@GetMapping("/")
 	public String getIndex(@RequestParam(required = false) String searchInput, Model model) {
@@ -48,6 +52,8 @@ public class PhotoController {
 	/// CREATE
 	@GetMapping("photos/create")
 	public String create(Model model) {
+		
+		model.addAttribute("categories", categoryServ.findAll());
 		model.addAttribute("photo", new Photo());
 		
 		return "photos/create-edit";
@@ -75,6 +81,7 @@ public class PhotoController {
 		
 		Photo photo = photoServ.findById(id);
 		model.addAttribute("photo", photo);
+		model.addAttribute("categories", categoryServ.findAll());
 		
 		return "photos/create-edit";
 	}
