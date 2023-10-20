@@ -16,10 +16,12 @@ public class AuthConfig {
 	@Bean
 	SecurityFilterChain  filterChain(HttpSecurity http) throws Exception {
 		
-		http.csrf().disable().authorizeHttpRequests()
+		http.authorizeHttpRequests()
+		/// ROTTE
 		.requestMatchers("/api/v1/**").permitAll()
 		.requestMatchers("/**").hasAuthority("admin")
 		.and().formLogin().defaultSuccessUrl("/")
+		.and().csrf().ignoringRequestMatchers("/api/v1/**")
 		.and().logout();
 		
 		return http.build();
